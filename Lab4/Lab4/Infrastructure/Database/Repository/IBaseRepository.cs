@@ -10,8 +10,6 @@ public interface IBaseRepository
     DbSet<T> DbSet<T>() where T : class;
     int SaveChanges();
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
-    DbConnection GetConnectionInfo();
-    string DataBaseName();
     IQueryable<T> GetAll<T>() where T : class;
     int Count<T>(Expression<Func<T, bool>>? predicate = null) where T : class;
     bool Any<T>(Expression<Func<T, bool>>? predicate = null) where T : class;

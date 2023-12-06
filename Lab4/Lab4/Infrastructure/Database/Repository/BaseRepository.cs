@@ -46,16 +46,6 @@ public abstract class BaseRepository
             throw;
         }
     }
-    
-    public DbConnection GetConnectionInfo()
-    {
-        return DbContext.Database.GetDbConnection();
-    }
-    
-    public string DataBaseName()
-    {
-        return DbContext.Database.GetDbConnection().Database;
-    }
 
     #region GetAll
 
@@ -193,8 +183,6 @@ public abstract class BaseRepository
         return entityEntry.Entity;
     }
     
-    
-
     #endregion
 
     #region Delete
