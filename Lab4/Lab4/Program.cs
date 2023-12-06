@@ -1,3 +1,4 @@
+using Lab4.Domain.Contracts;
 using Lab4.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.RegisterDependencies(builder.Configuration);
 var app = builder.Build();
 
+using (var serviceScope = app.Services.CreateScope())
+{
+    var services = serviceScope.ServiceProvider;
+
+    var myDependency = services.GetRequiredService<IMigrationsManager>();
+
+    //Use the service
+    myDependency?.MigrateDbIfNeeded().Wait();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -21,6 +32,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
