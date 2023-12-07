@@ -7,9 +7,7 @@ namespace Lab4.Domain.Contracts;
 
 public interface IBudgetService
 {
-    Task<ErrorOr<Account>> CreateAccountAsync(AccountDto accountDto); 
     Task<ErrorOr<double>> GetBalanceAsync(Guid userId);
-    Task<ErrorOr<bool>> AddIncomeAsync(Guid userId, CashFlowDto cashFlowDto);
-    Task<ErrorOr<bool>> AddExpenseAsync(Guid userId, CashFlowDto cashFlowDto);
-    Task<ErrorOr<Report>> GetReportAsync(Guid userId);
+    Task<ErrorOr<bool>> AddCashFlowAsync(Guid userId, CashFlowDto cashFlowDto, CancellationToken cancellationToken);
+    Task<ErrorOr<UserReport>> GetReportAsync(Guid userId);
 }

@@ -32,6 +32,9 @@ public static class DependencyInjection
         services.AddScoped<IJwtService, JwtService>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<IMigrationsManager, MigrationsManager>();
+        services.AddScoped<IBudgetService, BudgetService>();
+        services.AddScoped<ITransactionService, TransactionService>();
+        services.AddScoped<IAccountService, AccountService>();
         services.AddAutoMapper(_applicationAssembly);
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(opt =>

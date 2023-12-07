@@ -7,7 +7,7 @@ public class FinanceDbContext : DbContext
 {
     public FinanceDbContext(DbContextOptions<FinanceDbContext> options) : base(options)
     {
-        
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
     
     public DbSet<Account> Account { get; set; }

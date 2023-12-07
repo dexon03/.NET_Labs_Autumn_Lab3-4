@@ -14,7 +14,7 @@ public class AuthController : BaseController
     }
     
     [HttpPost("login")]
-    public async Task<IActionResult> LoginAsync([FromBody]LoginDto loginDto)
+    public async Task<IActionResult> LoginAsync(LoginDto loginDto)
     {
         var result = await _authService.LoginAsync(loginDto);
         return result.Match<IActionResult>(
@@ -24,7 +24,7 @@ public class AuthController : BaseController
     }
     
     [HttpPost("register")]
-    public async Task<IActionResult> RegisterAsync([FromBody]RegisterDto registerDto,CancellationToken cancellationToken)
+    public async Task<IActionResult> RegisterAsync(RegisterDto registerDto,CancellationToken cancellationToken)
     {
         var result = await _authService.RegisterAsync(registerDto,cancellationToken);
         return result.Match<IActionResult>(
@@ -34,7 +34,7 @@ public class AuthController : BaseController
     }
     
     [HttpPost("refresh")]
-    public async Task<IActionResult> RefreshTokenAsync([FromBody]RefreshTokenRequest refreshTokenDto,CancellationToken cancellationToken)
+    public async Task<IActionResult> RefreshTokenAsync(RefreshTokenRequest refreshTokenDto,CancellationToken cancellationToken)
     {
         var result = await _authService.RefreshTokenAsync(refreshTokenDto.RefreshToken,cancellationToken);
         return result.Match<IActionResult>(
