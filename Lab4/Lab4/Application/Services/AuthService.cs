@@ -1,4 +1,3 @@
-using System.Net;
 using ErrorOr;
 using Lab4.Application.Utilities;
 using Lab4.Domain.Contracts;

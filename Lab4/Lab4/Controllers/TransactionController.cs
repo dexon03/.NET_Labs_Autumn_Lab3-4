@@ -1,9 +1,11 @@
 using Lab4.Domain.Contracts;
 using Lab4.Domain.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lab4.Controllers;
 
+[Authorize]
 public class TransactionController : BaseController
 {
     private readonly ITransactionService _transactionService;

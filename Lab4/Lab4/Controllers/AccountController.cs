@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lab4.Controllers;
 
+[Authorize]
 public class AccountController : BaseController
 {
     private readonly IAccountService _accountService;
