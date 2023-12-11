@@ -41,7 +41,7 @@ public class TransactionService : ITransactionService
     {
         var accountFrom = await _repository.GetByIdAsync<Account>(transactionDto.FromAccountId);
         var accountTo = await _repository.GetByIdAsync<Account>(transactionDto.ToAccountId);
-        if (accountFrom.Balance <= transactionDto.Amount)
+        if (accountFrom.Balance < transactionDto.Amount)
         {
             return Error.Validation(description: "Not enough money");
         }
